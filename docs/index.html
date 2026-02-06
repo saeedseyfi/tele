@@ -624,21 +624,46 @@
       max-width: 540px;
     }
 
-    .install-header {
-      padding: 14px 18px;
-      border-bottom: 1px solid var(--border);
+    .install-tabs {
       display: flex;
-      align-items: center;
-      gap: 8px;
+      border-bottom: 1px solid var(--border);
     }
 
-    .install-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
+    .install-tab {
+      flex: 1;
+      padding: 12px 16px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
     }
 
-    .install-code {
+    .install-tab:hover {
+      color: var(--text-secondary);
+    }
+
+    .install-tab.active {
+      color: var(--amber);
+    }
+
+    .install-tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 16px;
+      right: 16px;
+      height: 1px;
+      background: var(--amber);
+    }
+
+    .install-panel {
+      display: none;
       padding: 24px;
       font-family: var(--font-mono);
       font-size: 13.5px;
@@ -647,12 +672,41 @@
       color: var(--text-secondary);
     }
 
-    .install-code .cmd {
+    .install-panel.active {
+      display: block;
+    }
+
+    .install-panel .cmd {
       color: var(--amber);
     }
 
-    .install-code .comment {
+    .install-panel .comment {
       color: var(--text-muted);
+    }
+
+    .install-panel .dmg-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--amber);
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 12px 0;
+      transition: opacity 0.2s;
+    }
+
+    .install-panel .dmg-link:hover {
+      opacity: 0.8;
+    }
+
+    .install-panel .dmg-note {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-top: 4px;
     }
 
     /* ── Divider ── */
@@ -955,22 +1009,25 @@
     <p class="section-desc reveal">Install via Homebrew, download the DMG, or build from source.</p>
 
     <div class="install-block reveal">
-      <div class="install-header">
-        <div class="install-dot" style="background: #ff5f57"></div>
-        <div class="install-dot" style="background: #febc2e"></div>
-        <div class="install-dot" style="background: #28c840"></div>
+      <div class="install-tabs">
+        <button class="install-tab active" data-tab="brew">Homebrew</button>
+        <button class="install-tab" data-tab="dmg">Download</button>
+        <button class="install-tab" data-tab="source">Source</button>
       </div>
-      <div class="install-code">
-        <span class="comment"># Install with Homebrew</span><br>
+      <div class="install-panel active" data-tab="brew">
         <span class="cmd">brew tap</span> saeedseyfi/tele<br>
         <span class="cmd">brew install --cask</span> tele
       </div>
+      <div class="install-panel" data-tab="dmg">
+        <a href="https://github.com/saeedseyfi/tele/releases/latest" class="dmg-link" target="_blank" rel="noopener">↓ Download latest .dmg</a>
+        <div class="dmg-note">The app is unsigned — on first launch, right-click → Open → Open.</div>
+      </div>
+      <div class="install-panel" data-tab="source">
+        <span class="cmd">git clone</span> https://github.com/saeedseyfi/tele.git<br>
+        <span class="cmd">cd</span> tele && <span class="cmd">npm install</span><br>
+        <span class="cmd">npm start</span>
+      </div>
     </div>
-
-    <p class="reveal" style="margin-top: 24px; font-size: 14px; color: var(--text-secondary); font-weight: 300; max-width: 540px;">
-      Or download the <a href="https://github.com/saeedseyfi/tele/releases/latest" style="color: var(--amber); text-decoration: none;">.dmg from the latest release</a>.
-      The app is unsigned — on first launch, right-click → Open → Open.
-    </p>
   </section>
 
   <!-- Footer -->
@@ -995,6 +1052,15 @@
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Install tabs
+    document.querySelectorAll('.install-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const id = tab.dataset.tab;
+        document.querySelectorAll('.install-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === id));
+        document.querySelectorAll('.install-panel').forEach(p => p.classList.toggle('active', p.dataset.tab === id));
+      });
+    });
   </script>
 </body>
 </html>
