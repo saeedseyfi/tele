@@ -17,6 +17,10 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - name: Convert icon SVG to PNG
+        run: |
+          brew install librsvg
+          rsvg-convert -w 1024 -h 1024 build/icon.svg -o build/icon.png
       - run: npm run dist
       - uses: softprops/action-gh-release@v2
         with:
