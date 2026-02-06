@@ -30,7 +30,11 @@
     ],
     "mac": {
       "category": "public.app-category.productivity",
-      "icon": "build/icon.svg"
+      "icon": "build/icon.svg",
+      "target": ["dmg"]
+    },
+    "directories": {
+      "output": "release"
     }
   }
 }

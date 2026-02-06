@@ -14,7 +14,22 @@ Your script scrolls directly under the lens. To your audience, you're just looki
 - **Fully local** — no accounts, no cloud, no telemetry. Your scripts stay in localStorage, config in a local JSON file.
 - **Free and open source** — MIT licensed. Modify it, extend it, make it yours.
 
-## Getting started
+## Install
+
+### Homebrew (recommended)
+
+```
+brew tap saeedseyfi/tele
+brew install --cask tele
+```
+
+> The app is unsigned. On first launch: right-click the app → Open → Open.
+
+### Download
+
+Grab the `.dmg` from the [latest release](https://github.com/saeedseyfi/tele/releases/latest).
+
+### Build from source
 
 ```
 git clone https://github.com/saeedseyfi/tele.git
