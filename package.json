@@ -7,7 +7,7 @@
     "build": "tsc && mkdir -p dist/renderer && cp src/renderer/*.html src/renderer/*.css src/renderer/*.js dist/renderer/",
     "start": "npm run build && electron .",
     "dev": "nodemon --watch src --ext ts,js,html,css --exec 'npm run build && electron .'",
-    "dist": "npm run build && electron-builder"
+    "dist": "npm run build && electron-builder --publish never"
   },
   "author": "Saeed Seyfi <me@saeedseyfi.com>",
   "license": "MIT",
