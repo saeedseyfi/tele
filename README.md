@@ -17,15 +17,16 @@ Your script scrolls directly under the lens. To your audience, you're just looki
 ## Getting started
 
 ```
+git clone https://github.com/saeedseyfi/tele.git
+cd tele
 npm install
-npm run dev
-```
-
-## Build
-
-```
-npm run build
 npm start
+```
+
+## Development
+
+```
+npm run dev
 ```
 
 ## License
