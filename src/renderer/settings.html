@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Settings</title>
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+  <div id="settings">
+    <h1>Settings</h1>
+
+    <section>
+      <h2>Shortcuts</h2>
+      <div class="field">
+        <label>Play / Pause</label>
+        <button class="shortcut-btn" data-key="playPause"></button>
+      </div>
+      <div class="field">
+        <label>Speed Up</label>
+        <button class="shortcut-btn" data-key="speedUp"></button>
+      </div>
+      <div class="field">
+        <label>Speed Down</label>
+        <button class="shortcut-btn" data-key="speedDown"></button>
+      </div>
+      <div class="field">
+        <label>Seek Ahead</label>
+        <button class="shortcut-btn" data-key="seekAhead"></button>
+      </div>
+      <div class="field">
+        <label>Seek Back</label>
+        <button class="shortcut-btn" data-key="seekBack"></button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Playback</h2>
+      <div class="field">
+        <label for="default-speed">Default Speed</label>
+        <input id="default-speed" type="range" min="1" max="10" step="0.5">
+        <span id="default-speed-val"></span>
+      </div>
+      <div class="field">
+        <label for="seek-speed">Seek Speed</label>
+        <input id="seek-speed" type="range" min="50" max="500" step="10">
+        <span id="seek-speed-val"></span>
+      </div>
+    </section>
+
+    <div class="actions">
+      <button id="save-btn">Save</button>
+    </div>
+  </div>
+  <script src="settings.js"></script>
+</body>
+</html>

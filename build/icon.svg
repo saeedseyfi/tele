@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <!-- Deep noir background -->
+    <linearGradient id="bg" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0%" stop-color="#141419"/>
+      <stop offset="100%" stop-color="#0a0a0f"/>
+    </linearGradient>
+    <!-- Amber spotlight glow -->
+    <radialGradient id="glow" cx="0.5" cy="0.48" r="0.35">
+      <stop offset="0%" stop-color="#f5c542" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#f5c542" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Active line gradient -->
+    <linearGradient id="activeLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f5c542" stop-opacity="0"/>
+      <stop offset="15%" stop-color="#f5c542"/>
+      <stop offset="85%" stop-color="#e8a830"/>
+      <stop offset="100%" stop-color="#e8a830" stop-opacity="0"/>
+    </linearGradient>
+    <!-- Soft blur for glow effects -->
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="bigGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="30"/>
+    </filter>
+    <!-- Notch clip -->
+    <clipPath id="notchClip">
+      <path d="M0 228 Q0 0 228 0 L390 0 Q410 0 420 18 Q440 52 480 52 L544 52 Q584 52 604 18 Q614 0 634 0 L796 0 Q1024 0 1024 228 L1024 796 Q1024 1024 796 1024 L228 1024 Q0 1024 0 796Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- Main shape with notch cutout -->
+  <g clip-path="url(#notchClip)">
+    <!-- Background -->
+    <rect width="1024" height="1024" fill="url(#bg)"/>
+
+    <!-- Subtle vertical gradient stripe -->
+    <rect x="460" y="0" width="104" height="1024" fill="#f5c542" opacity="0.012"/>
+
+    <!-- Ambient glow behind active area -->
+    <ellipse cx="512" cy="490" rx="340" ry="200" fill="#f5c542" opacity="0.06" filter="url(#bigGlow)"/>
+
+    <!-- Text lines — fading out from center -->
+
+    <!-- Far top (very faint) -->
+    <rect x="340" y="260" width="344" height="8" rx="4" fill="#ffffff" opacity="0.06"/>
+    <rect x="310" y="290" width="404" height="8" rx="4" fill="#ffffff" opacity="0.06"/>
+
+    <!-- Upper mid (faint) -->
+    <rect x="290" y="330" width="444" height="9" rx="4.5" fill="#ffffff" opacity="0.1"/>
+    <rect x="330" y="362" width="364" height="9" rx="4.5" fill="#ffffff" opacity="0.1"/>
+
+    <!-- Near center (visible) -->
+    <rect x="270" y="400" width="484" height="10" rx="5" fill="#ffffff" opacity="0.18"/>
+    <rect x="300" y="434" width="424" height="10" rx="5" fill="#ffffff" opacity="0.25"/>
+
+    <!-- THE ACTIVE LINE — golden, glowing -->
+    <rect x="230" y="476" width="564" height="18" rx="9" fill="#f5c542" opacity="0.3" filter="url(#bigGlow)"/>
+    <rect x="230" y="478" width="564" height="14" rx="7" fill="url(#activeLine)" filter="url(#softGlow)"/>
+
+    <!-- Below center (visible) -->
+    <rect x="280" y="520" width="464" height="10" rx="5" fill="#ffffff" opacity="0.22"/>
+    <rect x="310" y="554" width="404" height="10" rx="5" fill="#ffffff" opacity="0.16"/>
+
+    <!-- Lower mid (faint) -->
+    <rect x="320" y="594" width="384" height="9" rx="4.5" fill="#ffffff" opacity="0.1"/>
+    <rect x="280" y="626" width="464" height="9" rx="4.5" fill="#ffffff" opacity="0.1"/>
+
+    <!-- Far bottom (very faint) -->
+    <rect x="330" y="664" width="364" height="8" rx="4" fill="#ffffff" opacity="0.06"/>
+    <rect x="300" y="694" width="424" height="8" rx="4" fill="#ffffff" opacity="0.05"/>
+
+    <!-- Subtle scan line overlay for texture -->
+    <g opacity="0.025">
+      <line x1="0" y1="200" x2="1024" y2="200" stroke="#fff" stroke-width="0.5"/>
+      <line x1="0" y1="300" x2="1024" y2="300" stroke="#fff" stroke-width="0.5"/>
+      <line x1="0" y1="400" x2="1024" y2="400" stroke="#fff" stroke-width="0.5"/>
+      <line x1="0" y1="500" x2="1024" y2="500" stroke="#fff" stroke-width="0.5"/>
+      <line x1="0" y1="600" x2="1024" y2="600" stroke="#fff" stroke-width="0.5"/>
+      <line x1="0" y1="700" x2="1024" y2="700" stroke="#fff" stroke-width="0.5"/>
+      <line x1="0" y1="800" x2="1024" y2="800" stroke="#fff" stroke-width="0.5"/>
+    </g>
+
+    <!-- Notch inner shadow hint -->
+    <path d="M390 0 Q410 0 420 18 Q440 52 480 52 L544 52 Q584 52 604 18 Q614 0 634 0" fill="none" stroke="#f5c542" stroke-width="1" opacity="0.15"/>
+  </g>
+
+  <!-- Outer border with subtle highlight -->
+  <path d="M0 228 Q0 0 228 0 L390 0 Q410 0 420 18 Q440 52 480 52 L544 52 Q584 52 604 18 Q614 0 634 0 L796 0 Q1024 0 1024 228 L1024 796 Q1024 1024 796 1024 L228 1024 Q0 1024 0 796Z" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.08"/>
+</svg>

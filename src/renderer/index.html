@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tele</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <button id="close-btn" title="Close">&times;</button>
+
+    <div id="editor">
+      <textarea id="script" placeholder="Paste your script here..."></textarea>
+      <div class="toolbar">
+        <button id="settings-btn" title="Settings">&#9881;</button>
+        <button id="ready-btn">Ready</button>
+      </div>
+    </div>
+
+    <div id="prompter" class="hidden">
+      <div id="viewport">
+        <div id="track"></div>
+      </div>
+      <button id="start-btn">Start</button>
+      <div id="timer">0:00</div>
+      <div id="speed-toast"></div>
+    </div>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
