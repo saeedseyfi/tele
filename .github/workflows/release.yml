@@ -22,7 +22,5 @@ jobs:
           brew install librsvg
           rsvg-convert -w 1024 -h 1024 build/icon.svg -o build/icon.png
       - run: npm run dist
-      - uses: softprops/action-gh-release@v2
-        with:
-          files: release/*.dmg
-          generate_release_notes: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
