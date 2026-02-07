@@ -21,6 +21,10 @@ jobs:
         run: |
           brew install librsvg
           rsvg-convert -w 1024 -h 1024 build/icon.svg -o build/icon.png
+      - name: Delete existing draft release
+        run: gh release delete "${{ github.ref_name }}" --yes || true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npm run dist
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
