@@ -23,7 +23,7 @@ brew tap saeedseyfi/tele
 brew install --cask tele
 ```
 
-> The app is unsigned. On first launch: right-click the app → Open → Open.
+> The app is unsigned. On first launch, run `xattr -cr /Applications/Tele.app` or go to System Settings → Privacy & Security → Open Anyway.
 
 ### Download
 
