@@ -559,6 +559,63 @@
       font-weight: 300;
     }
 
+    /* ── Coming Soon ── */
+    .coming-soon-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 48px 40px;
+      max-width: 600px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .coming-soon-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--amber-glow), transparent);
+    }
+
+    .coming-soon-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber);
+      background: var(--amber-faint);
+      border: 1px solid rgba(232, 164, 74, 0.15);
+      border-radius: 6px;
+      padding: 4px 10px;
+      margin-bottom: 20px;
+    }
+
+    .coming-soon-card h3 {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .coming-soon-card h3 em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--amber);
+    }
+
+    .coming-soon-card p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
     /* ── Shortcuts ── */
     .shortcuts-wrap {
       display: flex;
@@ -970,6 +1027,17 @@
         <h3>Sentence-smart splitting</h3>
         <p>Long paragraphs are automatically split at sentence boundaries for comfortable reading at any scroll speed.</p>
       </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Coming Soon -->
+  <section class="section">
+    <div class="coming-soon-card reveal">
+      <div class="coming-soon-badge">Coming soon</div>
+      <h3>Voice-synced <em>scrolling</em></h3>
+      <p>Tele will listen as you speak and scroll your script in real time, matching your natural pace. No fixed speed, no manual adjustments. Just talk.</p>
     </div>
   </section>
 

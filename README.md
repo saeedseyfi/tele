@@ -14,6 +14,10 @@ Your script scrolls directly under the lens. To your audience, you're just looki
 - **Fully local** — no accounts, no cloud, no telemetry. Your scripts stay in localStorage, config in a local JSON file.
 - **Free and open source** — MIT licensed. Modify it, extend it, make it yours.
 
+## Coming soon
+
+**Voice-synced scrolling** — Tele will listen as you speak and scroll your script in real time, matching your natural pace. No fixed speed, no manual adjustments. Just talk.
+
 ## Install
 
 ### Homebrew (recommended)
